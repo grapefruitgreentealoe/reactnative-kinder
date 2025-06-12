@@ -238,3 +238,33 @@ https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${WE
 
 11. expo icons
     @expo/vector-icons
+
+---
+
+Day3. Work hard travel hard app
+
+1. padding은 native에서는
+   paddingVertical, paddingHorizontal이라는 속성으로 들어간다.
+2. TouchabeOpacity
+   View와 비슷한데 (box같은데,)
+   누르는 이벤트를 listen할 준비가 된 view
+   애니메이션이 들어가있음.
+
+3. TouchableHighlight
+요소를 클릭했을대, 배경색이 변경하게 된다. 
+그리고, onPress가 있어야함!
+
+4. TouchableWithoutFeedback -> Pressable로 쓸것
+ui변화가 없는 컴포넌트임. 
+https://reactnative.dev/docs/pressable
+문서를 봣을 때 TouchableOpacity에서 후에는 Pressable로 바꾸라고도 되어있다. 
+
+![alt text](image-7.png)
+
+이런 속성들을 지원한다. 
+
+delayLongPress 
+얼만큼 눌러야하는지를 설정할 수 있다!
+disable도 있다. 
+hitSlope
+요소 바깥 어디까지 탭 누르는 것을 감지할 지 정하는것. (유저의 손가락굵기때문에)
