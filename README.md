@@ -235,3 +235,12 @@ JS 컴포넌트가 호출하는 네이티브 쪽 구현체(예: UIManager, ViewM
 
 ![alt text](image-6.png)
 보면 OS마다 호환이 되는 프로퍼티가 다르다. 
+
+
+8) Location
+expo-location
+geo location 
+requestPermissionAsync()로 유저 권한 요청
+getLastKnownPositionAync() 로 현재 위치 얻기
+watchPositionAsync() 유저가 이동을 해도 따라가면서 위치 알 수 있음. 
+reverseGeocodeAsync() 위도와 경도를 주면 도시와 구역 반환. 
