@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import * as Location from "expo-location";
+import { Fontisto } from "@expo/vector-icons";
 
 /** Location 객체에 대한 타입 */
 
@@ -95,10 +96,37 @@ async function getCoords() {
 
 /*---------------- */
 
+// types.ts
+export interface WeatherInfo {
+  id: number;
+  main: IconName;
+  description: string;
+  icon: string;
+}
+
+export interface DailyWeather {
+  dt: number;
+  temp: { day: string; min: number; max: number };
+  weather: WeatherInfo[];
+}
+
+const icons = {
+  Clouds: "cloudy",
+  Clear: "day-sunny",
+  Atmosphere: "cloudy-gusts",
+  Rain: "rains",
+  Drizzle: "rains",
+  Snow: "snow",
+  Thunderstorm: "lightning",
+} as const; // 타입 안전성을 위해 const로 선언
+
+type WeatherMain = keyof typeof icons; // "Clouds"|"Clear"|...
+type IconName = (typeof icons)[WeatherMain]; // "cloudy"|"day-sunny"|...
+
 export default function HomeScreen() {
   const [location, setLocation] = useState<string | null>(null);
   const [ok, setOk] = useState(true);
-  const [days, setDays] = useState<any[]>([]); // 날씨 데이터를 저장할 상태 변수
+  const [days, setDays] = useState<DailyWeather[]>([]); // 날씨 데이터를 저장할 상태 변수
   const ask = async () => {
     try {
       const { latitude, longitude } = await getCoords();
@@ -146,11 +174,14 @@ export default function HomeScreen() {
           />
         ) : (
           days.map((day, index) => {
+            const main = day.weather[0].main as WeatherMain;
+
             return (
               <View style={styles.day} key={index}>
                 <Text style={styles.temp}>
                   {parseFloat(day.temp.day).toFixed(1)}
                 </Text>
+                <Fontisto name={icons[main]} size={68} color="white" />
                 <Text style={styles.description}>{day.weather[0].main}</Text>
                 <Text style={styles.tinyText}>
                   {day.weather[0].description}
@@ -187,6 +218,10 @@ const styles = StyleSheet.create({
   },
   temp: {
     fontSize: 158,
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   description: {
     marginTop: -30,
