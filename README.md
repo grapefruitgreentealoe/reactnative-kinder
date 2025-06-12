@@ -247,3 +247,9 @@ reverseGeocodeAsync() 위도와 경도를 주면 도시와 구역 반환.
 
 https://docs.expo.dev/guides/environment-variables/
 
+9) open weather api 
+
+https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric
+
+
+10) ActivityIndicator
