@@ -244,3 +244,6 @@ requestPermissionAsync()로 유저 권한 요청
 getLastKnownPositionAync() 로 현재 위치 얻기
 watchPositionAsync() 유저가 이동을 해도 따라가면서 위치 알 수 있음. 
 reverseGeocodeAsync() 위도와 경도를 주면 도시와 구역 반환. 
+
+https://docs.expo.dev/guides/environment-variables/
+
