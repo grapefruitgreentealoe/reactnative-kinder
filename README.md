@@ -268,3 +268,20 @@ delayLongPress
 disable도 있다. 
 hitSlope
 요소 바깥 어디까지 탭 누르는 것을 감지할 지 정하는것. (유저의 손가락굵기때문에)
+
+
+5. TextInput
+onSubmitEditing => 사용자가 done버튼을 눌렀을 때 실행
+returnKeyType => focus 해제되는 버튼의 종류?
+
+
+---
+# 챌린지
+
+1. tab 상태 persist
+2. list 완료된것 삭제하지 말고, check아이콘 넣어서 체크상태 넣기
+3. text input으로 todo 수정하게 (수정버튼 추가)
+
+
+---
+
