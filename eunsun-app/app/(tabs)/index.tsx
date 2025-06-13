@@ -15,6 +15,7 @@ import {
 } from "react-native";
 
 const STORAGE_KEY = "@toDos";
+const TAB = "@tabs";
 
 interface ToDo {
   [key: string]: {
@@ -123,29 +124,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.bg,
-    alignItems: "center",
-    justifyContent: "center",
     paddingHorizontal: 20,
   },
   header: {
+    justifyContent: "space-between",
     flexDirection: "row",
     marginTop: 100,
-    justifyContent: "space-between",
   },
   btnText: {
-    color: theme.grey,
-    fontSize: 44,
-    fontWeight: "bold",
-    marginHorizontal: 20,
+    fontSize: 38,
+    fontWeight: "600",
   },
   input: {
     backgroundColor: "white",
     paddingVertical: 15,
     paddingHorizontal: 20,
     borderRadius: 30,
-    marginTop: 20,
-    fontSize: 18,
     marginVertical: 20,
+    fontSize: 18,
   },
   toDo: {
     backgroundColor: theme.toDoBg,
@@ -160,6 +156,6 @@ const styles = StyleSheet.create({
   toDoText: {
     color: "white",
     fontSize: 16,
-    fontWeight: "500",
+    fontWeight: "600",
   },
 });
