@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "eunsun-app",
-    "slug": "eunsun-app",
+    "slug": "todo-eunsun",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,14 +9,23 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.eunsun.todoeunsun",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.eunsun.todoeunsun"
     },
     "web": {
       "bundler": "metro",
@@ -42,7 +51,21 @@
       ]
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "baseUrl": "/reactnative-kinder"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f391c41a-fbee-4215-a79f-ed2fb49e3df1"
+      }
+    },
+    "owner": "eunsun",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f391c41a-fbee-4215-a79f-ed2fb49e3df1"
     }
   }
 }

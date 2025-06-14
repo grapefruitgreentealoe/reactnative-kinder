@@ -285,3 +285,105 @@ returnKeyType => focus 해제되는 버튼의 종류?
 
 ---
 
+Day4. publishing our apps
+
+1) expo로 배포하기
+expo.dev로 들어가서, 
+```npm install --global eas-cli && eas init --id  ~~
+npx expo export  && eas deploy
+
+````
+위와 같은 명령어를 활용하여 
+로 배포를 하면 미리보기가 가능하다. 
+
+
+
+
+2) ios, android용으로 qr로 expo go에서 실행하기
+
+```
+eas build:configure                
+ eas update        
+```
+
+3) react native web
+
+
+
+4) expo의 한계점
+기초적인파일(infrastructure)에 접근이 어렵다 
+우린 javascript, app.json에만 접근이 된다. 
+
+
+앱을 블루투스 기기와 연결해야할떄. 
+expo엔 없다. 
+
+react-native-ble-plx 와같은 라이브러ㅣ를 설치애햐하는데,
+우린 ios라는 폴더가 없어서 어렵다. 
+ios라는 폴더를 요구하고, 그안에서 명령어를 실행해야함. 
+
+또한 info.plist 등 필요
+
+즉 ios, andriod 환경 각각이 필요하다. 
+그런데 expo의 경우 우린 이런 환경 조작이 어렵다. 
+
+또한 기본적으로 expo앱은 매우 무겁다. 
+expo sdk가 기본적으로 넣는것들이 있기 때문. 
+(트리쉐이킹은 안되나?);
+
+eject라는 걸 실행하면 expo에서 꺼내준다. 
+
+5) react native web
+
+현재 ios에서 실행되는 것이 웹에서는 안된다.
+예를들어 createStyleSheet같은것. 
+alert같느것.
+
+이는 Platform이라는 API로 해결이 가능. 즉 환경마다의 분기처리를 통해서 alert, native alert를할수있는것. 
+
+또한 AsyncStorage는 플랫폼마다 각 환경에 맞는 저장소를 쓰게 도와줌. 
+
+
+
+6)
+- 앱 아이콘설정 방법 => assets/icon.png
+- 스플래시 스크린 -> assets/splash.png
+- 안드로이드 아이콘 => assets/adaptive-icon.png
+
+
+7 ) 새로고침마다 보이는 스플래쉬 스크린을 설정하는 방법에 대해서 알아보기 
+각 환경별로 설정해줘야 하는것들에 대해서 알아보기 
+https://docs.expo.dev/versions/latest/config/app/
+```
+"ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+
+
+
+````
+
+
+
+8) ios, android 파일로 빌드
+공식 문서에 따르면, 현재 Standalone app을 만들어주는 Classic build는 2023년 1월 4일부로 만료가 됩니다. 대신, EAS 빌드 방식을 사용하라고 하네요. 아래 문서를 읽고 따라하면 됩니다.
+https://docs.expo.dev/build/setup
+
+
+``` 
+› npm install -g eas-cli
+› eas build -p android
+```
+
+9) window, macos를 위한 앱도 빌드 가능하다
+https://microsoft.github.io/react-native-windows/docs/rnm-getting-started
+
+
+10) website publish 하는 법
+https://docs.expo.dev/guides/publishing-websites/
+gh-page를 통해 빠르게 배포가능.
